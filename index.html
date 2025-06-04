@@ -1,13 +1,134 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>So-Close</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So-Close - Cultivons ensemble Paris</title>
+    <link rel="stylesheet" href="src/index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">🌱 So-Close</a>
+            <ul class="nav-links">
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="header">
+        <div class="hero-content">
+            <h1 class="hero-title">So-Close</h1>
+            <p class="hero-subtitle">
+                L'application collaborative pour cultiver Paris ensemble.<br>
+                Créez, gérez et partagez vos jardins urbains dans la capitale comestible de 2035.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Créer mon jardin</a>
+                <a href="#" class="btn btn-secondary">Rejoindre un collectif</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Cultivons l'avenir ensemble</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🏡</div>
+                    <h3 class="feature-title">Créer & Rejoindre</h3>
+                    <p class="feature-description">
+                        Créez votre jardin collectif ou rejoignez une communauté existante dans votre quartier. 
+                        Ensemble, nous redonnons vie aux espaces urbains parisiens.
+                    </p>
+                </div>
+
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Planification Intelligente</h3>
+                    <p class="feature-description">
+                        Planifiez vos plantations selon le climat parisien, les saisons et la biodiversité locale. 
+                        Notre IA vous guide pour optimiser vos récoltes.
+                    </p>
+                </div>
+
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Gestion Collaborative</h3>
+                    <p class="feature-description">
+                        Organisez les tâches, partagez les resources et coordonnez les activités de votre collectif. 
+                        La force du groupe au service de votre jardin.
+                    </p>
+                </div>
+
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Partage de Savoirs</h3>
+                    <p class="feature-description">
+                        Accédez à des fiches-conseils, partagez vos expériences et apprenez des techniques 
+                        inspirées des maraîchers parisiens d'autrefois.
+                    </p>
+                </div>
+
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Suivi des Récoltes</h3>
+                    <p class="feature-description">
+                        Suivez la santé de votre jardin, enregistrez vos récoltes et mesurez l'impact 
+                        environnemental de votre contribution à la ville comestible.
+                    </p>
+                </div>
+
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Impact Écologique</h3>
+                    <p class="feature-description">
+                        Participez à la transformation écologique de Paris. Chaque jardin contribue 
+                        à la biodiversité urbaine et à la résilience alimentaire de la capitale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item scroll-animate">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Jardins Actifs</span>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <span class="stat-number">3.2k</span>
+                    <span class="stat-label">Jardiniers Urbains</span>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Arrondissements</span>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <span class="stat-number">500t</span>
+                    <span class="stat-label">Récoltes Annuelles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 SIGL - Shamoun Marie & Guellec Briac</p>
+            <p>Inspiré par l'héritage des maraîchers parisiens et les murs à pêches de Montreuil</p>
+        </div>
+    </footer>
+
+    <script type="module" src="src/App.js"></script>
+</body>
 </html>
