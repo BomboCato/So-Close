@@ -20,3 +20,18 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v15
         with:
           globs: "**/*.md"
+        
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Build le projet
+        run: npm run build
+        
+      - name: Copier le dossier dist via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: dist/*
+          target: /home/sigl/dist
