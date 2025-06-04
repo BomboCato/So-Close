@@ -21,11 +21,17 @@ jobs:
         with:
           globs: "**/*.md"
 
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Builder le projet
+        run: npm run build
+
       - name: Copier fichier via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: index.html
+          source: dist/*
           target: /home/sigl
