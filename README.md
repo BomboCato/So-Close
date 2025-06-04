@@ -1,12 +1,15 @@
-# React + Vite
+Username: Shamoun Marie 
+login: marie.shamoun
+Username: Guellec Briac
+login: briac.guellec
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Déploiement sur VM
 
-Currently, two official plugins are available:
+npm run build
+scp -i ../ssh_key -r dist/* sigl@so-close.groupe25.socra-sigl.fr:/home/sigl/
+ssh sigl@groupe25.socra-sigl.fr -i /chemin/vers/ssh_key
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+sudo cp -r /home/sigl/* /var/www/so-close/
+sudo systemctl restart nginx
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
