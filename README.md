@@ -1,4 +1,4 @@
-Username: Shamoun Marie 
+Username: Shamoun Marie
 login: marie.shamoun
 Username: Guellec Briac
 login: briac.guellec
@@ -11,5 +11,3 @@ ssh sigl@groupe25.socra-sigl.fr -i /chemin/vers/ssh_key
 
 sudo cp -r /home/sigl/* /var/www/so-close/
 sudo systemctl restart nginx
-
-
