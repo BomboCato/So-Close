@@ -55,3 +55,7 @@ jobs:
           script: |
             sudo rm -rf /var/www/so-close/*
             sudo cp -r /home/sigl/* /var/www/so-close/
+
+      - name: Vérification de la page déployée
+        run: |
+          curl -f http://so-close.groupeXX.socra-sigl.fr || exit 1
