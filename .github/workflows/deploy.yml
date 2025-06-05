@@ -26,8 +26,17 @@ jobs:
 
       - name: Build le projet
         run: npm run build
+
+      - name: Nettoyer /home/sigl
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /home/sigl/*
         
-      - name: Copier le dossier dist via SCP
+      - name: Copier le contenu du dossier dist via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
