@@ -60,11 +60,3 @@ COPY dist/ /usr/share/nginx/html
 # Exposer le port 80
 EXPOSE 80
 ```
-
-### 2. Construire l'image Docker
-
-docker build -t so-close-image
-
-### 3. Execution du conteneur
-
-docker run -d --name so-close-container -p 80:80 so-close-image
