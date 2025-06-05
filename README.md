@@ -27,12 +27,16 @@ sudo systemctl restart nginx
 
 ### Fichier deploy.yml
 
-Nous avons créer un fichier deploy.yml permettant de gérer le déploiement automatisé. Celui-ci, contenant appleboy pour pouvoir déployer via SCP.
+Nous avons créer un fichier deploy.yml permettant de gérer le
+déploiement automatisé. Celui-ci, contenant appleboy pour pouvoir
+déployer via SCP.
 
 
 ### Secrets GitHub
 
-Sur GitHub, nous avons ajouté les secrets nécessaires à notre pipeline CI/CD: aller dans **Settings > Secrets and variables > Actions > Repository secrets** et ajouter les secrets suivants :
+Sur GitHub, nous avons ajouté les secrets nécessaires à notre pipeline
+CI/CD: aller dans **Settings > Secrets and variables > Actions > 
+Repository secrets** et ajouter les secrets suivants :
 
 - **`HOST`** : so-close.groupe25.socra-sigl.fr.
 - **`USER`** : L'utilisateur SSH.
@@ -44,7 +48,8 @@ Sur GitHub, nous avons ajouté les secrets nécessaires à notre pipeline CI/CD:
 
 ### 1. Créer le `Dockerfile`
 
-À la racine du projet, créez un fichier `Dockerfile` pour conteneuriser l'application :
+À la racine du projet, créez un fichier `Dockerfile` pour
+conteneuriser l'application :
 
 ```Dockerfile
 # Utiliser une image de base Nginx
