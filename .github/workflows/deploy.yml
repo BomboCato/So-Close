@@ -58,4 +58,4 @@ jobs:
 
       - name: Vérification de la page déployée
         run: |
-          curl -f http://so-close.groupeXX.socra-sigl.fr || exit 1
+          curl -f http://so-close.groupe25.socra-sigl.fr || exit 1
