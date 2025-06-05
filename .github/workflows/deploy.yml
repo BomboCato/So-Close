@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           source: dist/*
-          target: /home/sigl/dist
+          target: /home/sigl/
 
       - name: Déployer vers /var/www/so-close
         uses: appleboy/ssh-action@v1.0.0
