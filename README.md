@@ -31,12 +31,10 @@ Nous avons créer un fichier deploy.yml permettant de gérer le
 déploiement automatisé. Celui-ci, contenant appleboy pour pouvoir
 déployer via SCP.
 
-
 ### Secrets GitHub
 
 Sur GitHub, nous avons ajouté les secrets nécessaires à notre pipeline
-CI/CD: aller dans **Settings > Secrets and variables > Actions > 
-Repository secrets** et ajouter les secrets suivants :
+CI/CD: aller dans **Settings > Secrets and variables > Actions > Repository secrets** et ajouter les secrets suivants :
 
 - **`HOST`** : so-close.groupe25.socra-sigl.fr.
 - **`USER`** : L'utilisateur SSH.
