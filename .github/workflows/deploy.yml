@@ -58,7 +58,7 @@ jobs:
 
       - name: Construire l'image Docker
         run: |
-          docker build -t ghcr.io/bombocato/so-close:${{ github.sha }} .
+          docker build -t ghcr.io/${{ github.repository_owner }}/so-close:${{ github.sha }} .
 
       - name: Se connecter à GitHub Container Registry
         uses: docker/login-action@v2
@@ -69,7 +69,7 @@ jobs:
 
       - name: Pousser l'image Docker sur GHCR
         run: |
-          docker push ghcr.io/bombocato/so-close:${{ github.sha }}
+          docker push ghcr.io/${{ github.repository_owner }}/so-close:${{ github.sha }}
 
       - name: Redémarrer le conteneur sur la VM (zero downtime)
         uses: appleboy/ssh-action@v1.0.0
@@ -78,7 +78,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull ghcr.io/bombocato/so-close:${{ github.sha }}
+            docker pull ghcr.io/${{ github.repository_owner }}/so-close:${{ github.sha }}
             docker stop so-close-container || true
             docker rm so-close-container || true
             docker run -d --name so-close-container -p 80:80 ghcr.io/bombocato/so-close:${{ github.sha }}
