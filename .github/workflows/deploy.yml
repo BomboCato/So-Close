@@ -44,4 +44,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo rm -rf /var/www/so-close/*
-            sudo cp -r /home/sigl/dist/* /var/www/so-close/
+            sudo cp -r /home/sigl/* /var/www/so-close/
