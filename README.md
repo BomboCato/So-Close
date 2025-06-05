@@ -8,6 +8,8 @@
 **Username**: Guellec Briac  
 **Login**: briac.guellec
 
+---
+
 ## Déploiement sur VM
 
 ```bash
@@ -19,11 +21,14 @@ sudo cp -r /home/sigl/* /var/www/so-close/
 sudo systemctl restart nginx
 ```
 
-# Déploiement Continu de l'application So-Close
+---
+
+## Déploiement Continu de l'application So-Close
 
 ### Fichier deploy.yml
 
 Nous avons créer un fichier deploy.yml permettant de gérer le déploiement automatisé. Celui-ci, contenant appleboy pour pouvoir déployer via SCP.
+
 
 ### Secrets GitHub
 
@@ -32,6 +37,8 @@ Sur GitHub, nous avons ajouté les secrets nécessaires à notre pipeline CI/CD:
 - **`HOST`** : so-close.groupe25.socra-sigl.fr.
 - **`USER`** : L'utilisateur SSH.
 - **`SSH_KEY`** : La clé privée SSH.
+
+---
 
 ## Étapes du pipeline de déploiement
 
@@ -51,7 +58,9 @@ EXPOSE 80
 ```
 
 ### 2. Construire l'image Docker
+
 docker build -t so-close-image
 
 ### 3. Execution du conteneur
+
 docker run -d --name so-close-container -p 80:80 so-close-image
