@@ -36,11 +36,6 @@ jobs:
           script: |
             rm -rf /home/sigl/*
         
-      - name: Construire et pousser l'image Docker
-        run: |
-          docker build -t ghcr.io/bombocato/so-close:${{ github.sha }} .
-          docker push ghcr.io/bombocato/so-close:${{ github.sha }}
-
       - name: Copier le contenu du dossier dist via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
