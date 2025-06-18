@@ -45,9 +45,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: /frontend/dist/*
+          source: frontend/dist/*
           target: /home/sigl/
-          strip_components: 1
+          strip_components: 2
 
       - name: Déployer vers /var/www/so-close
         uses: appleboy/ssh-action@v1.0.0
