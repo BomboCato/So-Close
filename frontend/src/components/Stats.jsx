@@ -6,7 +6,7 @@ export default function Stats() {
           {[
             { number: '150+', label: 'Jardins Actifs' },
             { number: '3.2k', label: 'Jardiniers Urbains' },
-            { number: '20 00000000000000000', label: 'Arrondissements' },
+            { number: '20', label: 'Arrondissements' },
             { number: '500t', label: 'Récoltes Annuelles' }
           ].map((stat, index) => (
             <div className="stat-item scroll-animate" key={index}>
