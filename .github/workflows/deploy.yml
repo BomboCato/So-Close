@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - tp3-socra-groupe25
 
 jobs:
   deploy:
@@ -23,69 +24,73 @@ jobs:
         
       - name: Installer les dépendances
         run: npm install
+        working-directory: ./frontend
 
       - name: Build le projet
         run: npm run build
+        working-directory: ./frontend
 
-#      - name: Nettoyer /home/sigl
-#        uses: appleboy/ssh-action@v1.0.0
-#       with:
-#         host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          script: |
-#            rm -rf /home/sigl/*
-#        
-#      - name: Copier le contenu du dossier dist via SCP
-#        uses: appleboy/scp-action@v0.1.4
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          source: dist/*
-#          target: /home/sigl/
-#          strip_components: 1
-#
-#      - name: Déployer vers /var/www/so-close
-#        uses: appleboy/ssh-action@v1.0.0
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          script: |
-#            sudo rm -rf /var/www/so-close/*
-#            sudo cp -r /home/sigl/* /var/www/so-close/
-     
-      - name: Définir le nom du repo en minuscule
-        run: echo "REPO_OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
-
-      - name: Construire l'image Docker
-        run: |
-          docker build -t ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }} .
-
-      - name: Se connecter à GitHub Container Registry
-        uses: docker/login-action@v2
+      - name: Nettoyer /home/sigl
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          host: ${{ secrets.HOST }}
+            username: ${{ secrets.USER }}
+            key: ${{ secrets.SSH_KEY }}
+            script: |
+              rm -rf /home/sigl/*
+        
+      - name: Copier le contenu du dossier dist via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: dist/*
+          target: /home/sigl/
+          strip_components: 1
+        working-directory: ./frontend
 
-      - name: Pousser l'image Docker sur GHCR
-        run: |
-          docker push ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
-
-      - name: Redémarrer le conteneur sur la VM (zero downtime)
+      - name: Déployer vers /var/www/so-close
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
-            docker stop so-close-container || true
-            docker rm so-close-container || true
-            docker run -d --name so-close-container -p 80:80 ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
-
-      - name: Vérification de la page déployée
-        run: |
-          curl -f http://so-close.groupe25.socra-sigl.fr || exit 1
+            sudo rm -rf /var/www/so-close/*
+            sudo cp -r /home/sigl/* /var/www/so-close/
+      
+     
+#      - name: Définir le nom du repo en minuscule
+#        run: echo "REPO_OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
+#
+#      - name: Construire l'image Docker
+#        run: |
+#          docker build -t ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }} .
+#
+#      - name: Se connecter à GitHub Container Registry
+#        uses: docker/login-action@v2
+#        with:
+#          registry: ghcr.io
+#          username: ${{ github.actor }}
+#          password: ${{ secrets.GITHUB_TOKEN }}
+#
+#      - name: Pousser l'image Docker sur GHCR
+#        run: |
+#          docker push ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
+#
+#      - name: Redémarrer le conteneur sur la VM (zero downtime)
+#        uses: appleboy/ssh-action@v1.0.0
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USER }}
+#          key: ${{ secrets.SSH_KEY }}
+#          script: |
+#            docker pull ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
+#            docker stop so-close-container || true
+#            docker rm so-close-container || true
+#            docker run -d --name so-close-container -p 80:80 ghcr.io/${{ env.REPO_OWNER_LC }}/so-close:${{ github.sha }}
+#
+#      - name: Vérification de la page déployée
+#        run: |
+#          curl -f http://so-close.groupe25.socra-sigl.fr || exit 1
