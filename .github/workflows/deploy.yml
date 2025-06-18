@@ -21,7 +21,7 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v15
         with:
           globs: "**/*.md"
-        
+
       - name: Installer les dépendances
         run: npm install
         working-directory: ./frontend
@@ -38,16 +38,16 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             rm -rf /home/sigl/*
-        
+
       - name: Copier le contenu du dossier dist via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: frontend/dist/*
+          source: /frontend/dist/*
           target: /home/sigl/
-          strip_components: 1
+          strip_components: 2
 
       - name: Déployer vers /var/www/so-close
         uses: appleboy/ssh-action@v1.0.0
@@ -58,8 +58,7 @@ jobs:
           script: |
             sudo rm -rf /var/www/so-close/*
             sudo cp -r /home/sigl/* /var/www/so-close/
-      
-     
+
 #      - name: Définir le nom du repo en minuscule
 #        run: echo "REPO_OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
 #
