@@ -85,3 +85,28 @@
 .button-container .btn-secondary:hover {
   background: rgba(77, 120, 90, 0.1);
 }
+
+body.dark .create-garden-wrapper {
+  background: linear-gradient(180deg, #1e1e1e 0%, #2c2c2c 100%);
+}
+
+body.dark .create-garden-form {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .create-garden-form h2,
+body.dark .create-garden-form label {
+  color: #a8d5a8;
+}
+
+body.dark .form-group input {
+  background: #1f1f1f;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark .form-group input:focus {
+  border-color: #6b8e5a;
+}
