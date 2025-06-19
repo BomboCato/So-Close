@@ -127,5 +127,3 @@ ViteJs pour le bundler
 ## Demo
 
 Url démo : <https://so-close.groupe25.socra-sigl.fr/>
----
-
