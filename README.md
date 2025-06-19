@@ -62,7 +62,7 @@ EXPOSE 80
 ```
 ## Technologies utilisées
 
-React pour le framework js
+React pour le framework js \
 ViteJs pour le bundler
 
 ##
