@@ -70,18 +70,10 @@ grâce à un formulaire dynamique accessible depuis la page d’accueil.
 
 ### ✨ Détails du formulaire
 
-<<<<<<< HEAD
 - 🌱 **Nom du jardin**
 - 📍 **Localisation**
 - 📐 **Surface** (en m²)
 - 👥 **Liste des membres** : possibilité d’ajouter ou supprimer dynamiquement des champs
-=======
-- 🌱 **Nom du jardin**  
-- 📍 **Localisation**  
-- 📐 **Surface** (en m²)  
-- 👥 **Liste des membres** : possibilité d’ajouter ou supprimer
-dynamiquement des champs  
->>>>>>> 70eeec1 (feat: readme)
 
 Les données sont **enregistrées dans le navigateur** (via `localStorage`)
 pour simuler un backend.
