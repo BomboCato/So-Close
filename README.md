@@ -62,24 +62,28 @@ EXPOSE 80
 ```
 ---
 
-## 🧩 Fonctionnalité principale : Créer un jardin
+## 🧩 Fonctionnalité principale – Créer un jardin
 
-L’application So-Close permet de créer un **jardin collectif urbain** grâce à un formulaire dynamique accessible depuis la page d’accueil.
+L’application So-Close permet de créer un **jardin collectif urbain**
+grâce à un formulaire dynamique accessible depuis la page d’accueil.
 
-### ✨ Détails du formulaire :
+### ✨ Détails du formulaire
 
-- 🌱 **Nom du jardin**
-- 📍 **Localisation**
-- 📐 **Surface** (en m²)
-- 👥 **Liste des membres** : possibilité d’ajouter ou supprimer dynamiquement des champs
+- 🌱 **Nom du jardin**  
+- 📍 **Localisation**  
+- 📐 **Surface** (en m²)  
+- 👥 **Liste des membres** : possibilité d’ajouter ou supprimer dynamiquement des champs  
 
-Les données sont **enregistrées dans le navigateur** (via `localStorage`) pour simuler un backend.
+Les données sont **enregistrées dans le navigateur** (via `localStorage`)
+pour simuler un backend.
 
-Après validation, l’utilisateur est redirigé vers la page **"Mes Jardins"** qui présente son jardin sous forme de fiche.
+Après validation, l’utilisateur est redirigé vers la page **"Mes Jardins"**
+qui présente son jardin sous forme de fiche.
 
-### 🔄 Actions possibles :
-- ✏️ Modifier le jardin (formulaire pré-rempli)
-- 🗑️ Supprimer le jardin
-- ⬅️ Revenir à la page d’accueil
+### 🔄 Actions possibles
+
+- ✏️ Modifier le jardin (formulaire pré-rempli)  
+- 🗑️ Supprimer le jardin  
+- ⬅️ Revenir à la page d’accueil  
 
 Le tout est géré **sans backend**, uniquement avec React, React Router, et `localStorage`.
