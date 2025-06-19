@@ -60,6 +60,7 @@ COPY dist/ /usr/share/nginx/html
 # Exposer le port 80
 EXPOSE 80
 ```
+
 ---
 
 ## 🧩 Fonctionnalité principale – Créer un jardin
@@ -72,7 +73,8 @@ grâce à un formulaire dynamique accessible depuis la page d’accueil.
 - 🌱 **Nom du jardin**  
 - 📍 **Localisation**  
 - 📐 **Surface** (en m²)  
-- 👥 **Liste des membres** : possibilité d’ajouter ou supprimer dynamiquement des champs  
+- 👥 **Liste des membres** : possibilité d’ajouter ou supprimer
+dynamiquement des champs  
 
 Les données sont **enregistrées dans le navigateur** (via `localStorage`)
 pour simuler un backend.
