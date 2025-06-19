@@ -37,14 +37,7 @@ export default function MesJardins() {
     <>
       <NavBar />
       <section style={{ padding: '4rem' }}>
-        <div style={{
-          background: '#ffffff',
-          borderRadius: '20px',
-          padding: '2rem',
-          maxWidth: '600px',
-          margin: '0 auto',
-          boxShadow: '0 0 20px rgba(0,0,0,0.1)'
-        }}>
+        <div className="garden-card">
           <h2 style={{ color: '#2d5a27', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             🌿 Mon Jardin
           </h2>

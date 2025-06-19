@@ -90,6 +90,35 @@ qui présente son jardin sous forme de fiche.
 
 Le tout est géré **sans backend**, uniquement avec React, React Router, et `localStorage`.
 
+---
+
+## 🌙 Mode sombre
+
+L’application So-Close propose un **mode sombre** activable via un
+bouton dans la barre de navigation.
+
+### ⚙️ Implémentation
+
+- Un bouton dans la **NavBar** permet de basculer entre les thèmes
+clair et sombre :
+  - `🌙 Mode sombre` → `☀️ Mode clair`
+
+- Le changement de thème est appliqué en ajoutant ou retirant
+dynamiquement une classe `dark` sur le `<body>`.
+
+- Un `MutationObserver` détecte ce changement pour mettre à jour
+l’état visuel de l’interface, y compris l’icône du bouton.
+
+### ✅ Résultat
+
+- 🌑 Le fond devient sombre avec un contraste suffisant.
+- 🎨 Les composants s’adaptent automatiquement : **cartes**
+**formulaires**, **navbar**, **footer**, etc.
+- 🔁 Le mode sombre reste **léger** et **cohérent** visuellement sur toutes les pages.
+- ✅ Aucun framework externe utilisé, uniquement **React** et **CSS natif**.
+
+---
+
 ## Technologies utilisées
 
 React pour le framework js \
@@ -98,3 +127,5 @@ ViteJs pour le bundler
 ## Demo
 
 Url démo : <https://so-close.groupe25.socra-sigl.fr/>
+---
+
