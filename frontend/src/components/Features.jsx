@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
+
 export default function Features() {
   return (
     <section className="features" id="features">
       <div className="container">
         <h2 className="section-title scroll-animate">Cultivons l'avenir ensemble</h2>
+
         <div className="features-grid">
           {[
             {
@@ -18,7 +21,7 @@ export default function Features() {
             {
               icon: '🤝',
               title: 'Gestion Collaborative',
-              text: "Organisez les tâches, partagez les resources et coordonnez les activités de votre collectif. La force du groupe au service de votre jardin."
+              text: "Organisez les tâches, partagez les ressources et coordonnez les activités de votre collectif. La force du groupe au service de votre jardin."
             },
             {
               icon: '📚',
@@ -42,6 +45,12 @@ export default function Features() {
               <p className="feature-description">{feature.text}</p>
             </div>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+          <Link to="/mes-jardins" className="btn btn-secondary scroll-animate">
+            🌱 Voir mes jardins
+          </Link>
         </div>
       </div>
     </section>

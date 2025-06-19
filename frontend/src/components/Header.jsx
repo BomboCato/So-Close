@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Header() {
   return (
     <header className="header">
@@ -8,7 +10,7 @@ export default function Header() {
           Créez, gérez et partagez vos jardins urbains dans la capitale comestible de 2035.
         </p>
         <div className="cta-buttons">
-          <a href="#" className="btn btn-primary">Créer mon jardin</a>
+          <Link to="/creer-jardin" className="btn btn-primary">Créer mon jardin</Link>
           <a href="#" className="btn btn-secondary">Rejoindre un collectif</a>
         </div>
       </div>

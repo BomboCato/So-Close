@@ -1,12 +1,28 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Features from './components/Features';
 import Stats from './components/Stats';
 import Footer from './components/Footer';
+
 import './index.css';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo === 'features') {
+      const section = document.getElementById('features');
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }, 200); // attendre que la page soit bien montée
+      }
+    }
+  }, [location]);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -38,10 +54,10 @@ function App() {
     });
 
     document.querySelectorAll('.feature-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
+      card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-8px) scale(1.02)';
       });
-      card.addEventListener('mouseleave', function() {
+      card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
       });
     });
