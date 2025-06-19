@@ -60,10 +60,12 @@ COPY dist/ /usr/share/nginx/html
 # Exposer le port 80
 EXPOSE 80
 ```
+
 ## Technologies utilisées
 
 React pour le framework js \
 ViteJs pour le bundler
 
-##
-Url démo : https://so-close.groupe25.socra-sigl.fr/
+## Demo
+
+Url démo : <https://so-close.groupe25.socra-sigl.fr/>
