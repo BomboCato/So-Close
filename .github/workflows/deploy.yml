@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - tp3-socra-groupe25
 
 jobs:
   deploy:
