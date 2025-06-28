@@ -39,15 +39,6 @@ jobs:
           script: |
             rm -rf /home/sigl/*
 
-      - name: Copier le dossier qui contient la web-api dans la VM via SCP
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_KEY }}
-          source: web-api/
-          target: /home/sigl/
-
       - name: Copier le contenu du dossier dist via SCP
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -67,11 +58,36 @@ jobs:
           script: |
             sudo rm -rf /var/www/so-close/*
             sudo cp -r /home/sigl/* /var/www/so-close/
+
+      - name: Copier le dossier qui contient la web-api dans la VM via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: web-api/
+          target: /home/sigl/
+
+      - name: Copier le dossier data dans la VM via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: data/
+          target: /home/sigl/
+
+      - name: Déployer le serveur Express
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
             cd /home/sigl/web-api
             npm install
             pm2 start index.js --name so-close-api
             pm2 save
-            pm2 startup
 
 #      - name: Définir le nom du repo en minuscule
 #        run: echo "REPO_OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
