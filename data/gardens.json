@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Test",
+    "location": "QuoicouLand",
+    "size": "53",
+    "members": [
+      "Member 1",
+      "Member 2"
+    ],
+    "id": 1
+  },
+  {
+    "name": "Test2",
+    "location": "QuoicouFeur",
+    "size": "-10",
+    "members": [
+      "Member"
+    ],
+    "id": 2
+  },
+  {
+    "name": "Test3",
+    "location": "QuoicouBanane",
+    "size": "33",
+    "members": [
+      "Member 1",
+      "Member 2",
+      "Member 3"
+    ],
+    "id": 3
+  }
+]
