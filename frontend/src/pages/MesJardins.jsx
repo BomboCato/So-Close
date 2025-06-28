@@ -7,7 +7,7 @@ export default function MesJardins() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/gardens')
+    fetch('http://localhost:3000/api/gardens')
       .then(res => res.json())
       .then(data => setGardens(data))
       .catch(err => console.error(`Error fetching gardens`, err));
@@ -16,7 +16,7 @@ export default function MesJardins() {
   const deleteGarden = (gardenId) => {
     const confirmDelete = window.confirm('Voulez-vous vraiment supprimer ce jardin ?');
     if (confirmDelete) {
-      fetch(`http://localhost:3000/gardens/${gardenId}`, {method: 'DELETE'})
+      fetch(`http://localhost:3000/api/gardens/${gardenId}`, {method: 'DELETE'})
         .then((res) => {
           if (!res.ok) throw new Error(`Failed to delete garden with id: ${gardenId}`);
 

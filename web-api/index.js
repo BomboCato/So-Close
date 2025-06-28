@@ -10,7 +10,7 @@ app.use(express.json());  // To allow endpoints to receive JSON in the body of t
 const DATA_FILE = path.join(__dirname, '../data/gardens.json');
 
 // Returns all gardens
-app.get('/gardens', (req, res) => {
+app.get('/api/gardens', (req, res) => {
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) return res.status(500).json({ error: `Failed to retrieve data from: ${DATA_FILE}`});
 
@@ -20,7 +20,7 @@ app.get('/gardens', (req, res) => {
 });
 
 // Adds a new garden to the list of gardens
-app.post('/gardens', (req, res) => {
+app.post('/api/gardens', (req, res) => {
   const newGarden = req.body;
 
   fs.readFile(DATA_FILE, 'utf8', (err, data) => {
@@ -39,7 +39,7 @@ app.post('/gardens', (req, res) => {
 });
 
 // Delete a garden by ID
-app.delete('/gardens/:id', (req, res) => {
+app.delete('/api/gardens/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
 
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
