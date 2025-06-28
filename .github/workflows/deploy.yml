@@ -67,8 +67,8 @@ jobs:
           script: |
             sudo rm -rf /var/www/so-close/*
             sudo cp -r /home/sigl/* /var/www/so-close/
-            sudo npm install -g pm2
             cd /home/sigl/web-api
+            npm install
             pm2 start index.js --name so-close-api
             pm2 save
             pm2 startup
