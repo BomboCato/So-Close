@@ -34,7 +34,7 @@ export default function CreateGarden() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/api/gardens', {
+    fetch('/api/gardens', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
