@@ -134,7 +134,7 @@ Certaines routes sont protégées grâce à un composant `PrivateRoute`.
 
 Pour le futur, le token JWT pourra être utilisé pour protéger
 un backend Express via un middleware `express-jwt`.
-✅ *Authentification fonctionnelle côté frontend, sans backend.*  
+*Authentification fonctionnelle côté frontend, sans backend.*  
 
 ---
 
