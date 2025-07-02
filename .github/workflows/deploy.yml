@@ -3,7 +3,7 @@ name: Déploiement So-Close
 on:
   push:
     branches:
-      - tp5-socra-groupe25
+      - main
 
 jobs:
   deploy:
