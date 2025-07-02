@@ -128,7 +128,7 @@ L’application **So-Close** utilise Auth0 comme fournisseur OAuth2.
 - **Client ID** : `FmW9rt0YzHd9vThrPLFj9GiQNhHHbqLr`  
 - **Callback & logout** : `http://localhost:5173`
 
-L’intégration React se fait avec le SDK `@auth0/auth0-react`, 
+L’intégration React se fait avec le SDK `@auth0/auth0-react`,
 configuré dans `index.js`.
 Certaines routes sont protégées grâce à un composant `PrivateRoute`.  
 
