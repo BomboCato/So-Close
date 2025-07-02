@@ -119,6 +119,23 @@ l’état visuel de l’interface, y compris l’icône du bouton.
 
 ---
 
+## 🔐 Authentification Auth0
+
+L’application **So-Close** utilise Auth0 comme fournisseur OAuth2.  
+
+- **Type d’application** : Single Page Application (SPA)  
+- **Domaine** : `dev-t5o016c65kkqx4c4.us.auth0.com`  
+- **Client ID** : `FmW9rt0YzHd9vThrPLFj9GiQNhHHbqLr`  
+- **Callback & logout** : `http://localhost:5173`
+
+L’intégration React se fait avec le SDK `@auth0/auth0-react`, configuré dans `index.js`.  
+Certaines routes sont protégées grâce à un composant `PrivateRoute`.  
+
+Pour le futur, le token JWT pourra être utilisé pour protéger un backend Express via un middleware `express-jwt`.
+✅ *Authentification fonctionnelle côté frontend, sans backend.*  
+
+---
+
 ## Technologies utilisées
 
 React pour le framework js \
