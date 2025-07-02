@@ -97,7 +97,7 @@ Le tout est géré **sans backend**, uniquement avec React, React Router, et `lo
 L’application So-Close propose un **mode sombre** activable via un
 bouton dans la barre de navigation.
 
-### ⚙️ Implémentation
+### Implémentation
 
 - Un bouton dans la **NavBar** permet de basculer entre les thèmes
 clair et sombre :
