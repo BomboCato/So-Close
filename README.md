@@ -63,17 +63,17 @@ EXPOSE 80
 
 ---
 
-## 🧩 Fonctionnalité principale – Créer un jardin
+## Fonctionnalité principale – Créer un jardin
 
 L’application So-Close permet de créer un **jardin collectif urbain**
 grâce à un formulaire dynamique accessible depuis la page d’accueil.
 
-### ✨ Détails du formulaire
+### Détails du formulaire
 
-- 🌱 **Nom du jardin**
-- 📍 **Localisation**
-- 📐 **Surface** (en m²)
-- 👥 **Liste des membres** : possibilité
+- **Nom du jardin**
+- **Localisation**
+- **Surface** (en m²)
+- **Liste des membres** : possibilité
 d’ajouter ou supprimer dynamiquement des champs
 
 Les données sont **enregistrées dans le navigateur** (via `localStorage`)
@@ -82,17 +82,17 @@ pour simuler un backend.
 Après validation, l’utilisateur est redirigé vers la page **"Mes Jardins"**
 qui présente son jardin sous forme de fiche.
 
-### 🔄 Actions possibles
+### Actions possibles
 
-- ✏️ Modifier le jardin (formulaire pré-rempli)  
-- 🗑️ Supprimer le jardin  
-- ⬅️ Revenir à la page d’accueil  
+- Modifier le jardin (formulaire pré-rempli)  
+- Supprimer le jardin  
+- Revenir à la page d’accueil  
 
 Le tout est géré **sans backend**, uniquement avec React, React Router, et `localStorage`.
 
 ---
 
-## 🌙 Mode sombre
+## Mode sombre
 
 L’application So-Close propose un **mode sombre** activable via un
 bouton dans la barre de navigation.
@@ -109,17 +109,17 @@ dynamiquement une classe `dark` sur le `<body>`.
 - Un `MutationObserver` détecte ce changement pour mettre à jour
 l’état visuel de l’interface, y compris l’icône du bouton.
 
-### ✅ Résultat
+### Résultat
 
-- 🌑 Le fond devient sombre avec un contraste suffisant.
-- 🎨 Les composants s’adaptent automatiquement : **cartes**
+- Le fond devient sombre avec un contraste suffisant.
+- Les composants s’adaptent automatiquement : **cartes**
 **formulaires**, **navbar**, **footer**, etc.
-- 🔁 Le mode sombre reste **léger** et **cohérent** visuellement sur toutes les pages.
-- ✅ Aucun framework externe utilisé, uniquement **React** et **CSS natif**.
+- Le mode sombre reste **léger** et **cohérent** visuellement sur toutes les pages.
+- Aucun framework externe utilisé, uniquement **React** et **CSS natif**.
 
 ---
 
-## 🔐 Authentification Auth0
+## Authentification Auth0
 
 L’application **So-Close** utilise Auth0 comme fournisseur OAuth2.  
 
