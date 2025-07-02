@@ -37,7 +37,18 @@ export default function MesJardins() {
     <>
       <NavBar />
       <section style={{ padding: '4rem' }}>
-        <div className="garden-card">
+        <div
+          className="garden-card"
+          style={{
+            background: document.body.classList.contains('dark') ? '#2a2a2a' : '#ffffff',
+            color: document.body.classList.contains('dark') ? '#f0f0f0' : '#000',
+            borderRadius: '20px',
+            padding: '2rem',
+            maxWidth: '600px',
+            margin: '0 auto',
+            boxShadow: '0 0 20px rgba(0,0,0,0.1)'
+          }}
+        >
           <h2 style={{ color: '#2d5a27', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             🌿 Mon Jardin
           </h2>
@@ -46,14 +57,16 @@ export default function MesJardins() {
           <p><strong>Surface :</strong> {garden.size} m²</p>
           <p><strong>Membres :</strong> {garden.members.join(', ')}</p>
 
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '1.5rem',
-            marginTop: '2rem',
-            flexWrap: 'wrap'
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '1.5rem',
+              marginTop: '2rem',
+              flexWrap: 'wrap'
+            }}
+          >
             <button
               className="btn"
               style={{
