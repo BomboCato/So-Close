@@ -15,7 +15,6 @@ export default function MesJardins() {
         audience: "https://gardens-api"
       });
 
-      alert("token: " + token);
       fetch('/api/gardens',
         {
           headers: {
