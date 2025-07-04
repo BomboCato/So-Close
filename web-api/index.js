@@ -18,7 +18,6 @@ const checkJwt = expressjwt({
     rateLimit: true,
     jwksUri: "https://dev-t5o016c65kkqx4c4.us.auth0.com/.well-known/jwks.json",
   }),
-  audience: "default",
   issuer: "https://dev-t5o016c65kkqx4c4.us.auth0.com/",
   algorithms: ["RS256"],
 });

@@ -12,6 +12,8 @@ export default function MesJardins() {
   useEffect(() => {
     const fetchGardens = async () => {
       const token = await getAccessTokenSilently();
+
+      alert("token: " + token);
       fetch('/api/gardens',
         {
           headers: {
