@@ -34,7 +34,20 @@ export default function CreateGarden() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('so-close:created-garden', JSON.stringify(garden));
+    fetch('/api/gardens', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(garden),
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to create garden');
+        return res.json();
+      })
+      .then(data =>console.log('Garden created successfully !', data))
+      .catch(err => console.error(`Error fetching gardens`, err));
+
     navigate('/mes-jardins');
   };
 
