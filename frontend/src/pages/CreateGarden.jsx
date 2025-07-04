@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './CreateGarden.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function CreateGarden() {
   const [garden, setGarden] = useState({
@@ -9,6 +10,8 @@ export default function CreateGarden() {
     size: '',
     members: [''],
   });
+
+  const { getAccessTokenSilently } = useAuth0();
 
   const navigate = useNavigate();
 
@@ -32,9 +35,9 @@ export default function CreateGarden() {
     setGarden({ ...garden, members: updated });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("access_token");
+    const token = await getAccessTokenSilently();
     fetch('/api/gardens', {
       method: 'POST',
       headers: {

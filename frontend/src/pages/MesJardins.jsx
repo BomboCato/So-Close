@@ -1,28 +1,34 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function MesJardins() {
   const [gardens, setGardens] = useState(null);
   const navigate = useNavigate();
 
+  const { getAccessTokenSilently } = useAuth0();
+
   useEffect(() => {
-    const token = localStorage.getItem("access_token");
-    fetch('/api/gardens',
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(res => res.json())
-      .then(data => setGardens(data))
-      .catch(err => console.error(`Error fetching gardens`, err));
+    const fetchGardens = async () => {
+      const token = await getAccessTokenSilently();
+      fetch('/api/gardens',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(res => res.json())
+        .then(data => setGardens(data))
+        .catch(err => console.error(`Error fetching gardens`, err));
+    };
+    fetchGardens();
   }, []);
 
-  const deleteGarden = (gardenId) => {
+  const deleteGarden = async (gardenId) => {
     const confirmDelete = window.confirm('Voulez-vous vraiment supprimer ce jardin ?');
     if (confirmDelete) {
-      const token = localStorage.getItem("access_token");
+      const token = await getAccessTokenSilently();
       fetch(`/api/gardens/${gardenId}`,
         {
           method: 'DELETE',
