@@ -34,10 +34,12 @@ export default function CreateGarden() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("access_token");
     fetch('/api/gardens', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(garden),
     })

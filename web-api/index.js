@@ -2,6 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const jwksRsa = require('jwks-rsa');
+const { expressjwt } = require('express-jwt');
 
 const app = express();
 app.use(cors());  // To allow frontend to call the API (as frontend is running on a different origin, not running on localhost:3000 like the server)
@@ -9,8 +12,19 @@ app.use(express.json());  // To allow endpoints to receive JSON in the body of t
 
 const DATA_FILE = path.join(__dirname, '../data/gardens.json');
 
+const checkJwt = expressjwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksUri: "https://dev-t5o016c65kkqx4c4.us.auth0.com/.well-known/jwks.json",
+  }),
+  audience: "default",
+  issuer: "https://dev-t5o016c65kkqx4c4.us.auth0.com/",
+  algorithms: ["RS256"],
+});
+
 // Returns all gardens
-app.get('/api/gardens', (req, res) => {
+app.get('/api/gardens', checkJwt, (req, res) => {
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) return res.status(500).json({ error: `Failed to retrieve data from: ${DATA_FILE}`});
 
@@ -20,7 +34,7 @@ app.get('/api/gardens', (req, res) => {
 });
 
 // Adds a new garden to the list of gardens
-app.post('/api/gardens', (req, res) => {
+app.post('/api/gardens', checkJwt, (req, res) => {
   const newGarden = req.body;
 
   fs.readFile(DATA_FILE, 'utf8', (err, data) => {
@@ -39,7 +53,7 @@ app.post('/api/gardens', (req, res) => {
 });
 
 // Delete a garden by ID
-app.delete('/api/gardens/:id', (req, res) => {
+app.delete('/api/gardens/:id', checkJwt, (req, res) => {
     const id = parseInt(req.params.id, 10);
 
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
