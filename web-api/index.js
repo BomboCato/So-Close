@@ -16,9 +16,10 @@ const checkJwt = expressjwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
-    jwksUri: "https://dev-t5o016c65kkqx4c4.us.auth0.com/.well-known/jwks.json",
+    jwksUri: "https://dev-5aqjsme5s68hvy2a.eu.auth0.com/.well-known/jwks.json",
   }),
-  issuer: "https://dev-t5o016c65kkqx4c4.us.auth0.com/",
+  audience: "https://gardens-api",
+  issuer: "https://dev-5aqjsme5s68hvy2a.eu.auth0.com/",
   algorithms: ["RS256"],
 });
 

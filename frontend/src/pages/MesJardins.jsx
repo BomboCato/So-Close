@@ -11,7 +11,9 @@ export default function MesJardins() {
 
   useEffect(() => {
     const fetchGardens = async () => {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: "https://gardens-api"
+      });
 
       alert("token: " + token);
       fetch('/api/gardens',
@@ -30,7 +32,9 @@ export default function MesJardins() {
   const deleteGarden = async (gardenId) => {
     const confirmDelete = window.confirm('Voulez-vous vraiment supprimer ce jardin ?');
     if (confirmDelete) {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: "https://gardens-api"
+      });
       fetch(`/api/gardens/${gardenId}`,
         {
           method: 'DELETE',

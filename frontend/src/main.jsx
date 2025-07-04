@@ -11,10 +11,11 @@ import PrivateRoute from './components/PrivateRoute';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-t5o016c65kkqx4c4.us.auth0.com"
-      clientId="FmW9rt0YzHd9vThrPLFj9GiQNhHHbqLr"
+      domain="dev-5aqjsme5s68hvy2a.eu.auth0.com"
+      clientId="oEDPz04ubN3ZvuGrzUVTWGMdZLXEXP2W"
       authorizationParams={{
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
+        audience: "https://gardens-api",
       }}
       cacheLocation="localstorage"
     >

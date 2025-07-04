@@ -37,7 +37,9 @@ export default function CreateGarden() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await getAccessTokenSilently();
+    const token = await getAccessTokenSilently({
+      audience: "https://gardens-api"
+    });
     fetch('/api/gardens', {
       method: 'POST',
       headers: {
