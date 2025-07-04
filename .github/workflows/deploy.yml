@@ -86,7 +86,7 @@ jobs:
           script: |
             cd /home/sigl/web-api
             npm install
-            pm2 start index.js --name so-close-api
+            pm2 restart so-close-api
             pm2 save
 
 #      - name: Définir le nom du repo en minuscule
