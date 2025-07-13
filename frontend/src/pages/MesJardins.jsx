@@ -50,7 +50,7 @@ export default function MesJardins() {
     }
   };
 
-  if (!gardens) {
+  if (!gardens || gardens.length === 0) {
     return (
       <>
         <NavBar />
