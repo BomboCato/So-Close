@@ -1,4 +1,4 @@
-const pool = require('./pgPool');
+const pool = require('../web-api/pgPool');
 
 async function getGardensByUser(userSub) {
     const query = 'SELECT * FROM gardens WHERE user_sub = $1';
