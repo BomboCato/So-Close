@@ -144,6 +144,12 @@ _Authentification fonctionnelle côté frontend, sans backend._
 React pour le framework js \
 ViteJs pour le bundler
 
+PostgreSQL en tant que SGBD pour plusieurs raisons:
+- On manipule des données structurées (un jardin = un nom, une taille, une localisation, une liste de membres)
+- C'est un SGBD open-source
+- Doté d'un moteur transactionnel ACID natif qui garantit la fiabilité de nos opérations
+- SGBD qui a une bonne compatibilité avec les bibliothèques Node.js grâce à des modules comme pg qui facilitent l'intégration dans notre API REST.
+
 ## Lancer API & Front
 
 **Front** -> se rendre dans le dossier frontend et exécuter: `npm run dev` \
